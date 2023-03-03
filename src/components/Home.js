@@ -1,74 +1,60 @@
 import React from 'react'
 import styled from "styled-components";
-
+import Section from "./Section"
 
 export default function Home() {
-  return <Wrap>
-
-    <ItemText>
-        <h1>Model 3</h1>
-        <p>Leasing starting at $349/mo</p>
-    </ItemText>
-
-    <Buttons>
-        <ButtonGroup>
-            <LeftButton>
-                Custome Order
-            </LeftButton>
-            <RightButton>
-                Live Demo
-            </RightButton>
-        </ButtonGroup>
-        <DownArrow src="./images/down-arrow.svg" />
-    </Buttons>
-
-  </Wrap>
+ return <Container>
+    <Section 
+     title="Model 3"
+     description="Leasing starting at $349/mo"
+     leftBtnText="Custom Order"
+     rightBtnText="Demo Drive"
+     backgroundImg="model-3.jpg"
+    />
+      <Section 
+     title="Model Y"
+     description=""
+     leftBtnText="Custom Order"
+     rightBtnText="Demo Drive"
+     backgroundImg="model-y.jpg"
+    />
+      <Section 
+     title="Model S"
+     description="Schedule a Demo Drive"
+     leftBtnText="Custom Order"
+     rightBtnText="View Inventory"
+     backgroundImg="model-s.jpg"
+    />
+      <Section 
+     title="Model X"
+     description="Schedule a Demo Drive"
+     leftBtnText="Custom Order"
+     rightBtnText="View Inventory"
+     backgroundImg="model-x.jpg"
+    />
+       <Section 
+     title="Solar Panels"
+     description="Lowest Cost Solar Panels in America"
+     leftBtnText="Order Now"
+     rightBtnText="Learn More"
+     backgroundImg="solar-panel.jpg"
+    />
+       <Section 
+        title="Solar Roof"
+        description="Produce Clean Energy From Your Roof"
+        leftBtnText="Order Now"
+        rightBtnText="Learn More"
+        backgroundImg="solar-roof.jpg"
+    />
+       <Section 
+        title="Accessories"
+        description=""
+        leftBtnText="Shop Now"
+        backgroundImg="accessories.jpg"
+    />
+ </Container>
 }
 
-
-const Wrap = styled.div`
- height: 100vh;
- width: 100vw;
- background-size: cover;
- background-position: center;
- background-repear: no-repeat;
- background-image: url('/images/model-3.jpg');
- display: flex;
- flex-direction: column;
- justify-content: space-between;
- align-items: center;
- `
-
- const ItemText = styled.div`
-    padding-top: 15vh;
-    text-align: center;
+const Container = styled.div`
+overflow-x: hidden;
 `
-
-const ButtonGroup = styled.div`
-display: flex;
-`
-
-const LeftButton = styled.div`
-color: white;
-opacity: 0.85;
-width: 256px;
-height: 40px;
-border-radius: 4px;
-background: rgba(23, 26, 32, 0.8);
-margin: 8px;
-display: flex;
-align-items: center;
-justify-content: center;
-cursor: pointer;
-
-`
-
-const RightButton = styled(LeftButton)``
-
-const DownArrow = styled.img`
-margin: 8px; 
-height: 40px;
-animation : DownArrow  1.5s infinite;
-`
-
-const Buttons = styled.div``
