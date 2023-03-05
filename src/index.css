@@ -1,3 +1,5 @@
+  @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,600;1,400&display=swap');
+
 * {
     box-sizing: border-box;
     color : #393c41;
@@ -7,6 +9,10 @@
     
 }
 
+
+a {
+    text-decoration: none;
+}
 
 @keyframes DownArrow {
     
