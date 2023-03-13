@@ -1,88 +1,36 @@
 import React from 'react'
 import styled from "styled-components";
-import Section from "./Section"
-import Fullpage, { FullPageSections, FullpageSection } from '@ap.cx/react-fullpage';
+import Section from "../components/Section/"
+import Header from "../components/Header/"
+import { useContext } from 'react';
+import { Context } from '../context/context';
+import Footer from './Footer';
 
 export default function Home() {
+
+   const {cars} = useContext(Context);
+
  return (
+   <>
+   <Header />
    <Container>
-         <Fullpage>
-            <FullPageSections>
-               <FullpageSection>
-                  <Section 
-                  title="Model 3"
-                  description="Leasing starting at $349/mo"
-                  leftBtnText="Custom Order"
-                  rightBtnText="Demo Drive"
-                  backgroundImg="model-3.jpg"
-                  />
-               </FullpageSection>
-
-               <FullpageSection>
-                  <Section 
-                  title="Model Y"
-                  description=""
-                  leftBtnText="Custom Order"
-                  rightBtnText="Demo Drive"
-                  backgroundImg="model-y.jpg"
-                  />
-               </FullpageSection>
-
-               <FullpageSection>
-                  <Section 
-                  title="Model S"
-                  description="Schedule a Demo Drive"
-                  leftBtnText="Custom Order"
-                  rightBtnText="View Inventory"
-                  backgroundImg="model-s.jpg"
-                  />
-               </FullpageSection>
-   
-               <FullpageSection>
-                  <Section 
-                  title="Model X"
-                  description="Schedule a Demo Drive"
-                  leftBtnText="Custom Order"
-                  rightBtnText="View Inventory"
-                  backgroundImg="model-x.jpg"
-                  />
-               </FullpageSection>
-               
-               <FullpageSection>
-                  <Section 
-                  title="Solar Panels"
-                  description="Lowest Cost Solar Panels in America"
-                  leftBtnText="Order Now"
-                  rightBtnText="Learn More"
-                  backgroundImg="solar-panel.jpg"
-                  />
-               </FullpageSection>
-               
-               <FullpageSection>
-                  <Section 
-                  title="Solar Roof"
-                  description="Produce Clean Energy From Your Roof"
-                  leftBtnText="Order Now"
-                  rightBtnText="Learn More"
-                  backgroundImg="solar-roof.jpg"
-                  />
-               </FullpageSection>
-            
-               <FullpageSection>
-                  <Section 
-                  title="Accessories"
-                  description=""
-                  leftBtnText="Shop Now"
-                  backgroundImg="accessories.jpg"
-                  />
-               </FullpageSection>
-               
-            </FullPageSections>
-         </Fullpage>
+   {cars && 
+      cars.map((car,i) => {
+         return <Section key={i} car={car} show={true}/>
+      })
+   }
+      <Footer bottom={true} />
    </Container>
+   </>
  )
 }
 
 const Container = styled.div`
 position: relative;
+width: 100%;
+height: 100vh;
+scroll-behavior: smooth;
+overflow-y: auto;
+overflow-x: hidden;
+scroll-snap-type: y mandatory;
 `
